@@ -32,9 +32,6 @@ public class TeleOp extends LinearOpMode {
 
     public Servo cone;
 
-    // Other
-    public boolean isDropExtended = false;
-
     public void runOpMode(){
 
         // Attach hardware variables to software variables
@@ -72,9 +69,6 @@ public class TeleOp extends LinearOpMode {
         if(opModeIsActive()){
 
             while(opModeIsActive()){
-                telemetry.addData("Is Intake Extended?", isDropExtended);
-                telemetry.update();
-
                 // LOOP CODE HERE
 
                 // Gamepad 1
@@ -99,34 +93,16 @@ public class TeleOp extends LinearOpMode {
 
 
                 // Carousel spinners
-                if (gamepad1.right_bumper){
-                    rightExtend.setPower(0.75);
-                    leftExtend.setPower(0.15);
-                }else{
-                    rightExtend.setPower(0.3);
-                    leftExtend.setPower(0.6);
-                }
-                rightSpinner.setPower(0.7 * gamepad1.right_trigger);
-                leftSpinner.setPower(0.7 * gamepad1.right_trigger);
+                rightExtend.setPower(0.6);
+                leftExtend.setPower(0.6);
+                rightSpinner.setPower(gamepad1.right_trigger);
+                leftSpinner.setPower(gamepad1.right_trigger);
 
                 //Gamepad 2
 
                 // intake
                 intakeMotor.setPower(-gamepad2.left_stick_y);
-
-                if (gamepad2.x)
-                {
-                    isDropExtended = !isDropExtended;
-                    sleep(200);
-                }
-                if (isDropExtended)
-                {
-                    dropdown.setPosition(2);
-                }
-                else
-                {
-                    dropdown.setPosition(0.2);
-                }
+                dropdown.setPosition(1.8);
 
                 // lift
 

@@ -128,23 +128,23 @@ public class RedUpperAuto extends LinearOpMode
 
         lift_extender.setPower(0.5);
 
-        move(1050);
+        move(1000);
         runtopos();
         power(0.25);
         while(FL.isBusy()){}
         power(0);
         reset();
 
-        sleep(500);
+        sleep(400);
 
-        turn(-550);
+        turn(-535);
         runtopos();
         power(0.25);
         while(FL.isBusy()){}
         power(0);
         reset();
 
-        move(1400);
+        move(1350);
         runtopos();
         power(0.25);
         while(FL.isBusy()){}
@@ -155,7 +155,21 @@ public class RedUpperAuto extends LinearOpMode
         sleep(4000);
         rightspinner.setPower(0);
 
-        move(-800);
+        move(-725);
+        runtopos();
+        power(0.25);
+        while(FL.isBusy()){}
+        power(0);
+        reset();
+
+        turn(-580);
+        runtopos();
+        power(0.25);
+        while(FL.isBusy()){}
+        power(0);
+        reset();
+
+        move(-130);
         runtopos();
         power(0.25);
         while(FL.isBusy()){}
