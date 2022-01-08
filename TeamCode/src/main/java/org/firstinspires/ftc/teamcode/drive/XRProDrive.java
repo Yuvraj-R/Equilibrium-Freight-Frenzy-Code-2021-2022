@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @com.qualcomm.robotcore.eventloop.opmode.TeleOp
-public class TeleOp extends LinearOpMode {
+public class XRProDrive extends LinearOpMode {
 
     public DcMotor FRONT_LEFT;
     public DcMotor FRONT_RIGHT;
@@ -74,22 +74,14 @@ public class TeleOp extends LinearOpMode {
                 // Gamepad 1
 
                 //Drivetrain
-                if (gamepad1.left_trigger == 0)
-                {
-                    FRONT_LEFT.setPower(-gamepad1.left_stick_y);
-                    BACK_LEFT.setPower(-gamepad1.left_stick_y);
+                float modif = gamepad1.right_stick_x;
 
-                    FRONT_RIGHT.setPower(-gamepad1.right_stick_y);
-                    BACK_RIGHT.setPower(-gamepad1.right_stick_y);
-                }
-                else
-                {
-                    FRONT_LEFT.setPower(gamepad1.left_stick_y);
-                    BACK_LEFT.setPower(gamepad1.left_stick_y);
+                FRONT_LEFT.setPower(-gamepad1.left_stick_y + modif);
+                BACK_LEFT.setPower(-gamepad1.left_stick_y + modif);
 
-                    FRONT_RIGHT.setPower(gamepad1.right_stick_y);
-                    BACK_RIGHT.setPower(gamepad1.right_stick_y);
-                }
+                FRONT_RIGHT.setPower(-gamepad1.left_stick_y - modif);
+                BACK_RIGHT.setPower(-gamepad1.left_stick_y - modif);
+
 
 
                 // Carousel spinners
