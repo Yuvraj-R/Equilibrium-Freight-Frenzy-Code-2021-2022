@@ -94,7 +94,7 @@ public class RedLowerAuto extends LinearOpMode
 
         lift_extender.setPower(0.5);
 
-        move(-585);
+        move(-600);
         runtopos();
         power(0.25);
         while(FL.isBusy()){}

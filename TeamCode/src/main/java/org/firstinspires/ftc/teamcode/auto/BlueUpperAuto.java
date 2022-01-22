@@ -94,7 +94,7 @@ public class BlueUpperAuto extends LinearOpMode
 
         lift_extender.setPower(0.5);
 
-        move(-1700);
+        move(-1650);
         runtopos();
         power(0.25);
         while(FL.isBusy()){}
@@ -128,7 +128,7 @@ public class BlueUpperAuto extends LinearOpMode
 
         lift_extender.setPower(0.5);
 
-        move(1100);
+        move(1050);
         runtopos();
         power(0.25);
         while(FL.isBusy()){}
@@ -144,14 +144,14 @@ public class BlueUpperAuto extends LinearOpMode
         power(0);
         reset();
 
-        move(1350);
+        move(1425);
         runtopos();
         power(0.25);
         while(FL.isBusy()){}
         power(0);
         reset();
 
-        leftspinner.setPower(-0.35);
+        leftspinner.setPower(0.35);
         sleep(4000);
         leftspinner.setPower(0);
 
@@ -169,7 +169,7 @@ public class BlueUpperAuto extends LinearOpMode
         power(0);
         reset();
 
-        move(-130);
+        move(-150);
         runtopos();
         power(0.25);
         while(FL.isBusy()){}
