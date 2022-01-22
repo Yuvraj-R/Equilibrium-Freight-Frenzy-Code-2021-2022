@@ -93,7 +93,14 @@ public class XRProDrive extends LinearOpMode {
                 //Gamepad 2
 
                 // intake
-                intakeMotor.setPower(-gamepad2.left_stick_y);
+                if (gamepad2.left_bumper)
+                {
+                    intakeMotor.setPower(-0.3);
+                }
+                else
+                {
+                    intakeMotor.setPower(-gamepad2.left_stick_y);
+                }
                 dropdown.setPosition(1.8);
 
                 // lift
