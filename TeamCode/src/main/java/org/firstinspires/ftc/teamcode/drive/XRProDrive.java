@@ -14,7 +14,7 @@ public class XRProDrive extends LinearOpMode {
     public DcMotor FRONT_RIGHT;
     public DcMotor BACK_LEFT;
     public DcMotor BACK_RIGHT;
-
+    public DcMotorEx spinner;
     public DcMotorEx lift;
 
     public DcMotor intakeMotor;
@@ -26,9 +26,7 @@ public class XRProDrive extends LinearOpMode {
     public CRServo lift_open;
 
     public CRServo rightExtend;
-    public CRServo rightSpinner;
     public CRServo leftExtend;
-    public CRServo leftSpinner;
 
     public Servo cone;
 
@@ -50,19 +48,14 @@ public class XRProDrive extends LinearOpMode {
         lift_open = hardwareMap.get(CRServo.class, "bucketdrop");
 
         rightExtend = hardwareMap.get(CRServo.class, "rightextend");
-        rightSpinner = hardwareMap.get(CRServo.class, "rightspinner");
         leftExtend = hardwareMap.get(CRServo.class, "leftextend");
-        leftSpinner = hardwareMap.get(CRServo.class, "leftspinner");
 
         cone = hardwareMap.get(Servo.class, "cone");
-
+        spinner = hardwareMap.get(DcMotorEx.class, "spinner");
 
         // Set motor direction
         FRONT_LEFT.setDirection(DcMotorSimple.Direction.REVERSE);
         BACK_LEFT.setDirection(DcMotorSimple.Direction.REVERSE);
-
-        // Lift encoder
-        leftSpinner.setDirection(DcMotorSimple.Direction.REVERSE);
 
         waitForStart();
 
@@ -82,13 +75,20 @@ public class XRProDrive extends LinearOpMode {
                 FRONT_RIGHT.setPower(-gamepad1.left_stick_y - modif);
                 BACK_RIGHT.setPower(-gamepad1.left_stick_y - modif);
 
+                //spinner control
+                if (gamepad1.right_trigger != 0) {
+                    spinner.setVelocity(1155);
+                } else if (gamepad1.left_trigger != 0){
+                    spinner.setVelocity(-1155);
+                } else
+                    spinner.setVelocity(0);
+                }
+
 
 
                 // Carousel spinners
                 rightExtend.setPower(0.6);
                 leftExtend.setPower(0.6);
-                rightSpinner.setPower(gamepad1.right_trigger);
-                leftSpinner.setPower(gamepad1.right_trigger);
 
                 //Gamepad 2
 
@@ -126,4 +126,3 @@ public class XRProDrive extends LinearOpMode {
         }
 
     }
-}
